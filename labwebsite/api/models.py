@@ -10,7 +10,7 @@ class LabMember(models.Model):
         ('Alumni', 'Alumni'),
     ]
     AcademicProgram = models.CharField(max_length=50, choices=PROGRAM_CHOICES)
-    Department= models.TextField()
+    Department= models.CharField(max_length=50)
     bio = models.TextField()
     image = models.ImageField(upload_to='labwebsite\images', blank=True, null=True)
 
