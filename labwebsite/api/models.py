@@ -28,7 +28,7 @@ class Professor(models.Model):
         return self.user.username
     
 class Award(models.Model):
-    user = models.CharField(User, on_delete=models.CASCADE)
+    user = models.CharField(max_length=200)
     AwardName = models.TextField()
     date_started = models.DateField()
     Department= models.TextField()
