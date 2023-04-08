@@ -6,12 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email']
 
-class LabMemberSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-
-    class Meta:
-        model = LabMember
-        fields = ['id', 'user', 'AcademicProgram', 'Department', 'bio', 'image']
+    Department= serializers.CharField(max_length=50)
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
@@ -82,14 +77,4 @@ class PublicationSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     members = LabMemberSerializer(many=True)
 
-    class Meta:
-        model = Project
-        fields = ['id', 'title', 'description', 'members']
-
-    def create(self, validated_data):
-        members_data = validated_data.pop('members')
-        project = Project.objects.create(**validated_data)
-        for member_data in members_data:
-            member = LabMember.objects.get(pk=member_data['id'])
-            project.members.add(member)
-        return project
+    
