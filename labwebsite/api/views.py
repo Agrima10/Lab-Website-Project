@@ -2,11 +2,15 @@ from django.shortcuts import render
 from .models import LabMember, Professor, Award, Publication, Project
 from .serializers import LabMemberSerializer, ProfessorSerializer, AwardSerializer, PublicationSerializer, ProjectSerializer
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 class LabMembersViewSet(viewsets.ModelViewSet):
     queryset=LabMember.objects.all()
     serializer_class=LabMemberSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
 
 class ProfessorViewSet(viewsets.ModelViewSet):
