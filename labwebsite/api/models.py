@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class LabMember(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Name = models.CharField(max_length=100,default='name')
     PROGRAM_CHOICES = [
         ('PHD', 'PHD'),
         ('UG', 'UG'),
@@ -19,7 +20,7 @@ class LabMember(models.Model):
     
 class Professor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    Name = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100,default='name')
     Department= models.TextField()
     bio = models.TextField()
     research_interests = models.TextField()
@@ -30,7 +31,7 @@ class Professor(models.Model):
     
 class Award(models.Model):
     user = models.CharField(max_length=200)
-    Name = models.CharField(max_length=100)
+    # Name = models.CharField(max_length=100)
     AwardName = models.TextField()
     date_started = models.DateField()
     Department= models.TextField()
