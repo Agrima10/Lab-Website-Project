@@ -10,6 +10,8 @@ from rest_framework.permissions import IsAuthenticated
 class UserViewSet(viewsets.ModelViewSet):
     queryset=User.objects.all()
     serializer_class= UserSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
 
 class LabMembersViewSet(viewsets.ModelViewSet):
@@ -22,19 +24,29 @@ class LabMembersViewSet(viewsets.ModelViewSet):
 class ProfessorViewSet(viewsets.ModelViewSet):
     queryset=Professor.objects.all()
     serializer_class=ProfessorSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
 
 class AwardViewSet(viewsets.ModelViewSet):
     queryset=Award.objects.all()
     serializer_class=AwardSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
 
 class PublicationViewSet(viewsets.ModelViewSet):
     queryset=Publication.objects.all()
     serializer_class=PublicationSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset=Project.objects.all()
     serializer_class=ProjectSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
 
