@@ -4,6 +4,24 @@ from .serializers import LabMemberSerializer, ProfessorSerializer, AwardSerializ
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 # Create your views here.
+from rest_framework.decorators import APIView
+from rest_framework.decorators import api_view
+from rest_framework import status
+from rest_framework.response import Response
+
+class Lab_Member(APIView):
+    def get(self,request):
+        Lab_Member=LabMember.objects.all()
+        serializer=LabMemberSerializer(Lab_Member,many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        # data=JSONParser().parse(request)
+        serializer=LabMemberSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 def LabMember_list(request):
