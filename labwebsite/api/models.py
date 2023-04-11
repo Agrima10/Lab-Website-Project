@@ -40,7 +40,7 @@ class Award(models.Model):
     image = models.ImageField(upload_to='labwebsite\images\awards', blank=True, null=True)
 
     def __str__(self):
-        return self.user
+        return self.AwardName
     
 class Publication(models.Model):
     title = models.CharField(max_length=200)
