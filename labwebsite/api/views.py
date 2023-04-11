@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import LabMember, Professor, Award, Publication, Project
 from .serializers import LabMemberSerializer, ProfessorSerializer, AwardSerializer, PublicationSerializer, ProjectSerializer
-from django.http import JsonResponse
 from rest_framework import viewsets
 
 
