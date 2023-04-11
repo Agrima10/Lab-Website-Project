@@ -14,3 +14,4 @@ from rest_framework import viewsets
 class LabMembersViewSet(viewsets.ModelViewSet):
     queryset=LabMember.objects.all()
     serializer_class=LabMemberSerializer
+
