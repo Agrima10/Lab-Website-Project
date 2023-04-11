@@ -1,12 +1,11 @@
-from django.urls import path
-# from .views import Index 
-from .views import LabMember_list,ProfessorMember_list,Award_list,Publication_list,Project_list
-
+from django.urls import path, include
+from .views import LabMembersViewSet
+from rest_framework.routers import DefaultRouter
+# from .views import Lab_Member
+# from .views import Professor_
+# from .views import LabMember_list,ProfessorMember_list,Award_list,Publication_list,Project_list
+router= DefaultRouter()
+router.register('members',LabMembersViewSet, basename='members')
 urlpatterns = [
-    # path('', Index),
-    path('members/',LabMember_list),
-    path('members/',ProfessorMember_list),
-    path('members/',Award_list),
-    path('members/',Publication_list),
-    path('members/',Project_list),
+    path('',include(router.urls)),
 ]
