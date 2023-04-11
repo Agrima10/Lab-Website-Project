@@ -19,6 +19,7 @@ class LabMember(models.Model):
     
 class Professor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Name = models.CharField(max_length=100)
     Department= models.TextField()
     bio = models.TextField()
     research_interests = models.TextField()
@@ -29,6 +30,7 @@ class Professor(models.Model):
     
 class Award(models.Model):
     user = models.CharField(max_length=200)
+    Name = models.CharField(max_length=100)
     AwardName = models.TextField()
     date_started = models.DateField()
     Department= models.TextField()
