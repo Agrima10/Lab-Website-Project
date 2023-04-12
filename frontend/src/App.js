@@ -8,6 +8,7 @@ import News from './components/News';
 import People from './components/People';
 import Patents from './components/Patents';
 import Research from './components/Research';
+// import Footer from './components/Footer/Footer';
 // import People from './components/People';
 // import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
