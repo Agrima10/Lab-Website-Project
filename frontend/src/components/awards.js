@@ -1,9 +1,9 @@
 import React from 'react'
 
-function awards() {
+function Awards() {
   return (
     <div>awards</div>
   )
 }
 
-export default awards
+export default Awards

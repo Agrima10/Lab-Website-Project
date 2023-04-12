@@ -1,9 +1,9 @@
 import React from 'react'
 
-function research() {
+function Research() {
   return (
     <div>research</div>
   )
 }
 
-export default research
+export default Research

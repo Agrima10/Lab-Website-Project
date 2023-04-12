@@ -1,9 +1,9 @@
 import React from 'react'
 
-function people() {
+function People() {
   return (
-    <div>people</div>
+    <div>P</div>
   )
 }
 
-export default people
+export default People

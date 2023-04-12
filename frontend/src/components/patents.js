@@ -1,9 +1,9 @@
 import React from 'react'
 
-function patents() {
+function Patents() {
   return (
-    <div>patents</div>
+    <div>P</div>
   )
 }
 
-export default patents
+export default Patents
