@@ -3,13 +3,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import logo from '../image/logo.jpg';
 
 function Navbar1() {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "#04395E" }} variant="dark">
       <Container>
-        <Navbar.Brand href="#home"><img src="./image/Indian_Institute_of_Technology,_Indore_Logo.png" alt="example" width="200" height="150"/>Dr. Puneet Gupta</Navbar.Brand>
+        <Navbar.Brand href="/"><img src={logo} alt="example" width="200" height="150"/>Dr. Puneet Gupta</Navbar.Brand>
         {/* <Navbar.Brand href="#home">Dr. Puneet Gupta</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -30,11 +31,11 @@ function Navbar1() {
             </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Home</Nav.Link>
-            <Nav.Link href="#People">People</Nav.Link>
-            <Nav.Link href="#r">Research</Nav.Link>
-            <Nav.Link href="#pp">Publications and Patents</Nav.Link>
-            <Nav.Link href="#a">Awards and Fellowships</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/members">People</Nav.Link>
+            <Nav.Link href="/research">Research</Nav.Link>
+            <Nav.Link href="/patents">Publications and Patents</Nav.Link>
+            <Nav.Link href="/awards">Awards and Fellowships</Nav.Link>
             <NavDropdown title="More" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
