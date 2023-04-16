@@ -8,6 +8,7 @@ import News from './components/News';
 import People from './components/People';
 import Patents from './components/Patents';
 import Research from './components/Research';
+// import Footer from './components/Footer/Footer';
 // import People from './components/People';
 // import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
@@ -23,7 +24,7 @@ function App() {
           <Route exact path="/awards" element={<Awards />} />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/patents" element={<Patents/>} />
-          <Route exact path="/people" element={<People />} />
+          <Route exact path="/members" element={<People />} />
           <Route exact path="/research" element={<Research />} />
       </Routes>
       <Footer/>
