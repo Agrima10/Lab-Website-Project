@@ -9,7 +9,7 @@ function Navbar1() {
     <div>
       <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "#04395E" }} variant="dark">
       <Container>
-        <Navbar.Brand href="#home"><img src="./src/image/Indian_Institute_of_Technology,_Indore_Logo.png" alt="example" width="200" height="150"/>Dr. Puneet Gupta</Navbar.Brand>
+        <Navbar.Brand href="#home"><img src="./image/Indian_Institute_of_Technology,_Indore_Logo.png" alt="example" width="200" height="150"/>Dr. Puneet Gupta</Navbar.Brand>
         {/* <Navbar.Brand href="#home">Dr. Puneet Gupta</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
