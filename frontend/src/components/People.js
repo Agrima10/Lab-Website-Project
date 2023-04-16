@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 function People() {
-  const[ labmember, setLabMember]= useState([])
+  const[ LabMember, setLabMember]= useState([])
   useEffect(() =>{
     fetch('http://127.0.0.1:8000/api/members/',{
       'method':'GET',
@@ -16,8 +16,8 @@ function People() {
     .catch(error => console.log(error))
   },[])
   return (
-    <div>people
-    {labmember.map(LabMember => {
+    <div>
+    {LabMember.map(LabMember => {
       return <h2>{LabMember.name}</h2>
     })}
     </div>
