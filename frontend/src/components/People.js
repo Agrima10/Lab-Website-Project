@@ -1,25 +1,34 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-
+import axios from 'axios'
+import { useState,useEffect } from 'react'
 function People() {
-  const[ labmember, setLabMember]= useState([])
-  useEffect(() =>{
-    fetch('http://127.0.0.1:8000/api/members/',{
-      'method':'GET',
-      headers: {
-        'Content-Type':'application/json',
-        'Authorization':'Token 672875923a6a356c94a3d5db720e85af9f4aca79'
-      }
-    })
-    .then(resp => resp.json())
-    .then(resp => setLabMember(resp))
-    .catch(error => console.log(error))
+  const [data,setData]= useState();
+  const [isError,setIsError]=useState();
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/api/members/',
+    {headers: {
+      'Content-Type':'application/json',
+      'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
+    }}
+    ).then((response) => setData(response.data))
+    .catch((error) => setIsError(error.message));
+  if (isError) {
+    setData("Not Available");
+  }
   },[])
+  console.log(data);
   return (
     <div>
-    {labmember.map(LabMember => {
-      return <h2>{LabMember.name}</h2>
-    })}
+      {
+        data?.map((item,key)=>(
+          <>
+          <div>
+            {item.user}
+            {/* {item.} */}
+          </div>
+          </>
+        ))
+      }
     </div>
   )
 }

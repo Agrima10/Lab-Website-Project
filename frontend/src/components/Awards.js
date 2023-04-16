@@ -19,7 +19,6 @@ function Awards() {
   console.log(data);
   return (
     <div>
-
       {
         data?.map((item,key)=>(
           <>
