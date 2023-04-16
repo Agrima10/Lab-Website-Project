@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/awards" element={<Awards />} />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/patents" element={<Patents/>} />
-          <Route exact path="/people" element={<People />} />
+          <Route exact path="/members" element={<People />} />
           <Route exact path="/research" element={<Research />} />
       </Routes>
       <Footer/>
