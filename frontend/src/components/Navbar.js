@@ -10,7 +10,7 @@ function Navbar1() {
     <div>
       <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "#04395E" }} variant="dark">
       <Container>
-        <Navbar.Brand href="/"><img src={logo} alt="example" width="200" height="150"/>Dr. Puneet Gupta</Navbar.Brand>
+        <Navbar.Brand href="/"><img src={logo} alt="example" width="50" height="50"/>Dr. Puneet Gupta</Navbar.Brand>
         {/* <Navbar.Brand href="#home">Dr. Puneet Gupta</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
