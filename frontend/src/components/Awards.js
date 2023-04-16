@@ -9,8 +9,7 @@ function Awards() {
     {headers: {
       'Content-Type':'application/json',
       'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
-    }}
-    ).then((response) => setData(response.data))
+    }}).then((response) => setData(response.data))
     .catch((error) => setIsError(error.message));
   if (isError) {
     setData("Not Available");
@@ -19,7 +18,6 @@ function Awards() {
   console.log(data);
   return (
     <div>
-
       {
         data?.map((item,key)=>(
           <>
