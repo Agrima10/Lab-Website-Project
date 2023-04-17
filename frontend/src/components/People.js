@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Container, Row, Col } from 'react-bootstrap';
 import backgroundImage from './image/Banner.jpg';
 import {
   CDBSidebar,
@@ -79,9 +80,12 @@ function People() {
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
-      <div>
-        
-      </div>
+      {/* <div style={{ display: 'flex', width: '100%', height: '100%', padding: '2em', alignItems: 'center' }}>
+  <div style={{ flex: 1, paddingRight: '1em' }}>PHD</div>
+  <div style={{ flex: 1 }}>
+    <hr style={{ height: '1px', backgroundColor: 'black', margin: '0', border: 'none' }} />
+  </div>
+</div> */}
     </div>
       {
         data?.map((item,key)=>(

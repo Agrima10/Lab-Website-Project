@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { MDBCol } from 'mdb-react-ui-kit';
 import backgroundImage from './image/Banner.jpg';
 import { useState,useEffect } from 'react'
 import './Homepage.css'
@@ -32,6 +33,12 @@ function Homepage() {
       <div style={divStyle}>
         Lab Name
       </div>
+      <div className="d-flex align-items-start bg-light mb-3" style={{ height: "100px", padding:"2em"}}>
+        <MDBCol>One of three columns</MDBCol>
+        <MDBCol>One of three columns</MDBCol>
+        <MDBCol>One of three columns</MDBCol>
+      </div>
+
       {
         data?.map((item,key)=>(
           <>
