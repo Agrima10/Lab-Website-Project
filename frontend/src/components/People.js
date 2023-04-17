@@ -63,7 +63,7 @@ function People() {
             <NavLink exact to="/analytics" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Msc</CDBSidebarMenuItem>
             </NavLink>
-
+            
             <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Alumni</CDBSidebarMenuItem>
             </NavLink>
