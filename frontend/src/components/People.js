@@ -45,27 +45,27 @@ function People() {
       <CDBSidebar textColor="#fff" backgroundColor="#333">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-            Sidebar
+            Quick Links
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">PHD</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">Mtech</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">Msc</CDBSidebarMenuItem>
             </NavLink>
 
             <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="exclamation-circle">404 page</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">Alumni</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
@@ -76,10 +76,12 @@ function People() {
               padding: '20px 5px',
             }}
           >
-            Sidebar Footer
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
+      <div>
+        
+      </div>
     </div>
       {
         data?.map((item,key)=>(
