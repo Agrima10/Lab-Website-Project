@@ -20,5 +20,6 @@ router.register('users', UserViewSet, basename='users')
 
 #url paths
 urlpatterns = [
+    # path('',include()),
     path('api/',include(router.urls)),
 ]

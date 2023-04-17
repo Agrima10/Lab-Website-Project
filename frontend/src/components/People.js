@@ -20,7 +20,8 @@ function People() {
     padding: '5px',
     justifyContent: 'center',
     color: 'white',
-    fontSize: '5em' 
+    fontSize: '5em',
+    fontFamily: 'Roboto',
   };
   const [data,setData]= useState([]);
   const [isError,setIsError]=useState();
@@ -56,17 +57,17 @@ function People() {
               <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">PHD</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Mtech</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">MTech Members</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Msc</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">MSc Members</CDBSidebarMenuItem>
             </NavLink>
             
             <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Alumni</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>

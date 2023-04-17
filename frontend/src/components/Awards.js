@@ -1,6 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import backgroundImage from './image/Banner.jpg';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { useState,useEffect } from 'react'
 function Awards() {
   const divStyle = {
@@ -34,9 +38,36 @@ function Awards() {
       {
         data?.map((item,key)=>(
           <>
-          <div>
-            {item.user}
-            {item.AwardName}
+          <div>     
+            {/* <Card border="info" style={{ width: '18rem', margin:"1%"}}>
+              <Card.Img variant="top" src={item.image} />
+              <Card.Body>
+                <Card.Title>{item.AwardName}</Card.Title>
+                <Card.Text>Awarded to {item.user}
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>          */}
+            {/* <CardGroup> */}
+
+            <Row xs={5} md={2} className="g-4">
+              {Array.from({ length: 1 }).map((_, idx) => (
+                <Col>
+                  <Card border="info" 
+                  style={{ maxWidth:"30%", margin: "1%", display:"inline-flex"}}
+                  >
+                    <Card.Img variant="top" src= {item.image}/>
+                    <Card.Body>
+                      <Card.Title>{item.AwardName}</Card.Title>
+                      <Card.Text>
+                      Awarded to {item.user}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+          </Row>
+              {/* </CardGroup> */}
           </div>
           </>
         ))
