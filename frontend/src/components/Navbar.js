@@ -37,7 +37,7 @@ function Navbar1() {
             <Nav.Link href="/patents">Publications and Patents</Nav.Link>
             <Nav.Link href="/awards">Awards and Fellowships</Nav.Link>
             <NavDropdown title="More" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="/news">News & Opportunities</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -47,7 +47,6 @@ function Navbar1() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-
             {/* <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState,useEffect } from 'react'
+import './Homepage.css'
 function Homepage() {
   const [data,setData]= useState();
   const [isError,setIsError]=useState();
