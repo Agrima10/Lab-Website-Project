@@ -1,7 +1,17 @@
 import React from 'react'
 import axios from 'axios'
+import backgroundImage from './image/Banner.jpg';
 import { useState,useEffect } from 'react'
 function Awards() {
+  const divStyle = {
+    height: '20vh',
+    backgroundImage: `url(${backgroundImage})`,
+    textAlign: 'center',
+    padding: '5px',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: '5em' 
+  };
   const [data,setData]= useState();
   const [isError,setIsError]=useState();
   useEffect(()=>{
@@ -18,6 +28,9 @@ function Awards() {
   console.log(data);
   return (
     <div>
+      <div style={divStyle}>
+        Awards
+      </div>
       {
         data?.map((item,key)=>(
           <>

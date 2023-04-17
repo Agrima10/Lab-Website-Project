@@ -1,8 +1,18 @@
 import React from 'react'
 import axios from 'axios'
+import backgroundImage from './image/Banner.jpg';
 import { useState,useEffect } from 'react'
 import './Homepage.css'
 function Homepage() {
+  const divStyle = {
+    height: '20vh',
+    backgroundImage: `url(${backgroundImage})`,
+    textAlign: 'center',
+    padding: '5px',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: '5em' 
+  };
   const [data,setData]= useState();
   const [isError,setIsError]=useState();
   useEffect(()=>{
@@ -19,6 +29,9 @@ function Homepage() {
   console.log(data);
   return (
     <div>
+      <div style={divStyle}>
+        Lab Name
+      </div>
       {
         data?.map((item,key)=>(
           <>
