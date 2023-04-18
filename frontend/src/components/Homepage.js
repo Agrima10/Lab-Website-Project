@@ -20,7 +20,7 @@ function Homepage() {
     axios.get('http://127.0.0.1:8000/api/professor/',
     {headers: {
       'Content-Type':'application/json',
-      'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
+      'Authorization':'Token 311267cd55dd503028063abcf2ca1c96ad877fc7'
     }}).then((response) => setData(response.data))
     .catch((error) => setIsError(error.message));
   if (isError) {
@@ -32,6 +32,7 @@ function Homepage() {
     <div>
       <div style={divStyle}>
         Lab Name
+        
       </div>
       <div className="d-flex align-items-start bg-light mb-3" style={{ height: "100px", padding:"2em"}}>
         <MDBCol>One of three columns</MDBCol>
@@ -43,8 +44,7 @@ function Homepage() {
         data?.map((item,key)=>(
           <>
           <div>
-            {item.user}
-            {/* {item.AwardName} */}
+            {item.name}
           </div>
           </>
         ))
