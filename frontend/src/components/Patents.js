@@ -20,7 +20,8 @@ function Patents() {
     padding: '5px',
     justifyContent: 'center',
     color: 'white',
-    fontSize: '5em' 
+    fontSize: '5em',
+    fontWeight: '30'
   };
   const [data,setData]= useState();
   const [isError,setIsError]=useState();
