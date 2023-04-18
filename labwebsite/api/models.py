@@ -21,6 +21,7 @@ class LabMember(models.Model):
 class Professor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     Name = models.CharField(max_length=100,default='name')
+    Position= models.TextField()
     Department= models.TextField()
     bio = models.TextField()
     research_interests = models.TextField()
