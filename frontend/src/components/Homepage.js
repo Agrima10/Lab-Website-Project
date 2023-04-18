@@ -33,22 +33,20 @@ function Homepage() {
       <div style={divStyle}>
         Lab Name
       </div>
-      <div className="d-flex align-items-start bg-light mb-3" style={{ height: "100px", padding:"2em"}}>
-        <MDBCol>One of three columns</MDBCol>
-        <MDBCol>One of three columns</MDBCol>
-        <MDBCol>One of three columns</MDBCol>
-      </div>
+      
 
+      <div className="d-flex align-items-start bg-light mb-3" style={{ height: "100px", padding:"2em"}}>
       {
         data?.map((item,key)=>(
           <>
-          <div>
-            {item.user}
+          {/* <div> */}
+            <MDBCol>{item.user}</MDBCol>
             {/* {item.AwardName} */}
-          </div>
+          {/* </div> */}
           </>
         ))
       }
+      </div>
     </div>
   )
 }
