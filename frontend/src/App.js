@@ -6,6 +6,7 @@ import Navbar1 from './components/Navbar';
 import Footer from './components/Footer';
 import News from './components/News';
 import People from './components/People';
+import PhD from './components/PhD';
 import Patents from './components/Patents';
 import Research from './components/Research';
 // import Footer from './components/Footer/Footer';
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/awards" element={<Awards />} />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/patents" element={<Patents/>} />
+          {/* <Route exact path="/members" element={<PhD />} /> */}
           <Route exact path="/members" element={<People />} />
           <Route exact path="/research" element={<Research />} />
       </Routes>

@@ -33,9 +33,9 @@ function Homepage() {
         headers: {
           'Content-Type': 'application/json',
           // sana
-          Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+          // Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
           //agrima
-          // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+          Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
         },
       })
       .then((response) => setData(response.data))

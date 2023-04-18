@@ -43,7 +43,7 @@ class Award(models.Model):
     Department= models.TextField()
     Issuing_Organization= models.TextField()
     Remark = models.TextField()
-    image = models.ImageField(upload_to='./images', blank=True, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.AwardName

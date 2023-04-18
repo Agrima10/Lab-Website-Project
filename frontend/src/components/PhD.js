@@ -14,7 +14,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import { useState,useEffect } from 'react'
-function People() {
+function PhD() {
   const divStyle = {
     height: '20vh',
     backgroundImage: `url(${backgroundImage})`,
@@ -26,23 +26,27 @@ function People() {
     // fontFamily: 'Roboto',
     fontWeight: '30'
   };
-  const [data,setData]= useState([]);
+  const [myData,setmyData]= useState([]);
   const [isError,setIsError]=useState();
   useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/api/members/',
+    axios.get('http://127.0.0.1:8000/api/members',
     {headers: {
       'Content-Type':'application/json',
       'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
     }}
-    ).then((response) => setData(response.data))
-    .catch((error) => setIsError(error.message));
+    ).then((response) => {
+        const myData = response.data.filter(item => item.AcademicProgram === 'PHD');
+        console.log(myData);
+        // do something with the filtered data
+    })
   if (isError) {
-    setData("Not Available");
+    setmyData("Not Available");
   }
   },[])
-  console.log(data);
   return (
     <div>
+      {myData.AcademicProgram==="PHD"?<>phd</>:<></>}
+      {/* {data.program==="PHD"?<>phd</>:<></>} */}
       <div style={divStyle}>
         Members
       </div>
@@ -56,7 +60,7 @@ function People() {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/members" activeClassName="activeClicked">
+            <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
             </NavLink>
             <NavLink navigate to="/members" activeClassName="activeClicked">
@@ -84,44 +88,43 @@ function People() {
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
-      <div style={{height: '100vh', overflowY: 'scroll'}}>
-      {data.AcademicProgram==="Professor"?
-              <>
-              phd
-              <hr style={{width: "10rem", display:"inline-flex"}}></hr>
-              <h1 style={{ display:"inline-flex", margin:"0.5rem"}}> Professor </h1>
-              {
-                data?.map((item,key)=>(            
-                  <>
-                    <React.Fragment key={key}>
-                    <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}>
-                        <img
-                          src={item.image}
-                          alt="Member Image"
-                          style={{marginRight:"2rem"}}
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = 'https://via.placeholder.com/150';
-                          }}
-                          />
-                        <MDBCol>
-                        <h2>{item.Name}</h2>
-                        {item.AcademicProgram}, {item.Department}
-                        <p style={{fontSize: "small"}}>{item.bio}</p>
-                        Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
-                        Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
-                        Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
-                        Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
-                        </MDBCol>
-                        </div>
-                        </React.Fragment>
-                        </>
-                ))
-              }
-              </>
-      :<>not loading</>}
-      
-      {/* // {% endif %} */}
+      <div style={{height: '100vh'}}>
+      <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+      <h1 style={{ display:"inline-flex", margin:"0.5rem"}}> PhD </h1>
+            {/* <p>{{ item }}</p> */}
+      {
+        myData?.map((item,key)=>(            
+          // {% if item.AcademicProgram == 'Professor' %}
+          <>
+            <React.Fragment key={key}>
+            <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}>
+            {/* <MDBCol style={{width: "10rem"}}> */}
+                <img
+                  src={item.image}
+                  alt="Member Image"
+                  style={{marginRight:"2rem"}}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/150';
+                  }}
+                  />
+                  {/* </MDBCol> */}
+                  <MDBCol>
+                <h2>{item.Name}</h2>
+                {item.AcademicProgram}, {item.Department}
+                <p style={{fontSize: "small"}}>{item.bio}</p>
+                Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                </MDBCol>
+                {/* <MDBCol>One of three columns</MDBCol> */}
+                </div>
+                </React.Fragment>
+                </>
+          // {% endif %}
+        ))
+      }
       </div>
       {/* </div> */}
       {/* </div> */}
@@ -135,5 +138,5 @@ function People() {
     </div>
   )
 }
-export default People
+export default PhD
 
