@@ -35,10 +35,11 @@ function Awards() {
       <div style={divStyle}>
         Awards
       </div>
+      <div>     
+        <Row xs={5} md={2} className="g-4">
       {
         data?.map((item,key)=>(
           <>
-          <div>     
             {/* <Card border="info" style={{ width: '18rem', margin:"1%"}}>
               <Card.Img variant="top" src={item.image} />
               <Card.Body>
@@ -50,12 +51,9 @@ function Awards() {
             </Card>          */}
             {/* <CardGroup> */}
 
-            <Row xs={5} md={2} className="g-4">
               {Array.from({ length: 1 }).map((_, idx) => (
                 <Col>
-                  <Card border="info" 
-                  style={{ maxWidth:"30%", margin: "1%", display:"inline-flex"}}
-                  >
+                  <Card border="info" style={{ maxWidth:"30%", margin: "1%", display:"inline-flex"}}>
                     <Card.Img variant="top" src= {item.image}/>
                     <Card.Body>
                       <Card.Title>{item.AwardName}</Card.Title>
@@ -66,12 +64,12 @@ function Awards() {
                   </Card>
                 </Col>
               ))}
-          </Row>
               {/* </CardGroup> */}
-          </div>
           </>
         ))
       }
+      </Row>
+      </div>
     </div>
   )
 }
