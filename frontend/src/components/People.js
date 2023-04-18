@@ -21,7 +21,8 @@ function People() {
     justifyContent: 'center',
     color: 'white',
     fontSize: '5em',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
+    fontWeight: '30'
   };
   const [data,setData]= useState([]);
   const [isError,setIsError]=useState();
@@ -41,7 +42,7 @@ function People() {
   return (
     <div>
       <div style={divStyle}>
-        People
+        Members
       </div>
       <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
       <CDBSidebar textColor="#fff" backgroundColor="#333">

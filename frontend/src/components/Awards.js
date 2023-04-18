@@ -2,9 +2,10 @@ import React from 'react'
 import axios from 'axios'
 import backgroundImage from './image/Banner.jpg';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+// import Button from 'react-bootstrap/Button';
+// import CardGroup from 'react-bootstrap/CardGroup';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 import { useState,useEffect } from 'react'
 function Awards() {
   const divStyle = {
@@ -14,7 +15,9 @@ function Awards() {
     padding: '5px',
     justifyContent: 'center',
     color: 'white',
-    fontSize: '5em' 
+    fontSize: '5em',
+    fontWeight: '30'
+
   };
   const [data,setData]= useState();
   const [isError,setIsError]=useState();
@@ -33,43 +36,37 @@ function Awards() {
   return (
     <div>
       <div style={divStyle}>
-        Awards
+        Awards and Fellowships
       </div>
+      <center>
+        
       <div>     
-        <Row xs={5} md={2} className="g-4">
       {
         data?.map((item,key)=>(
           <>
-            {/* <Card border="info" style={{ width: '18rem', margin:"1%"}}>
-              <Card.Img variant="top" src={item.image} />
+            <Card border="info" style={{ width: '20rem', margin:"1%", display:"inline-flex", height:"40rem"}}>
+              <Card.Img variant="top" src={item.image} alt="Lab Image"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/150';
+                  }}/>
               <Card.Body>
                 <Card.Title>{item.AwardName}</Card.Title>
                 <Card.Text>Awarded to {item.user}
+                <br/> 
+                Recieved on {item.date_started} in the Department of {item.Department}
+                <br/> 
+                Issued by {item.Issuing_Organization}
+                <br/>
+                Remarks by the organization- {item.Remark}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
               </Card.Body>
-            </Card>          */}
-            {/* <CardGroup> */}
-
-              {Array.from({ length: 1 }).map((_, idx) => (
-                <Col>
-                  <Card border="info" style={{ maxWidth:"30%", margin: "1%", display:"inline-flex"}}>
-                    <Card.Img variant="top" src= {item.image}/>
-                    <Card.Body>
-                      <Card.Title>{item.AwardName}</Card.Title>
-                      <Card.Text>
-                      Awarded to {item.user}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-              {/* </CardGroup> */}
+            </Card>         
           </>
         ))
       }
-      </Row>
       </div>
+      </center>
     </div>
   )
 }
