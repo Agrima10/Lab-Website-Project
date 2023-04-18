@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { 
   MDBCol,
+  MDBRow,
   MDBCarousel,
   MDBCarouselItem,
+  MDBContainer,
+  MDBBtn
  } from 'mdb-react-ui-kit';
+import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import backgroundImage from './image/Banner.jpg';
 import './Homepage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Homepage() {
   const divStyle = {
@@ -28,9 +33,9 @@ function Homepage() {
         headers: {
           'Content-Type': 'application/json',
           // sana
-          // Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+          Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
           //agrima
-          Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+          // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
         },
       })
       .then((response) => setData(response.data))
@@ -64,19 +69,17 @@ function Homepage() {
                 <br/>
                 Indian Institute of Technology (IIT) Indore
                 <br/>
-                {item.bio}
-                <br/>              
+                {/* {item.bio}
+                <br/>               */}
               </MDBCol>
               {/* <div style={{borderRight: '1px solid #ccc'}}></div> */}
               <MDBCol style={{paddingLeft: "2em"}}>{item.research_interests}</MDBCol>
               <MDBCol>.</MDBCol>
             </div>
             </div>
-          </React.Fragment>
-        ))}
       {isError && <div>Sorry, there was an error loading the data.</div>}
       <hr/>
-      <div className="d-flex">
+      <div className="d-flex px-4 py-3">
       <MDBCarousel>
       <MDBCarouselItem
         className='w-100 d-block'
@@ -97,23 +100,59 @@ function Homepage() {
         alt='...'
         />
       </MDBCarousel>
-      <MDBCol>
-        <img
-          src=""
-          style={{float: "right", marginRight: "2em", height: "10em", width: "10em"}}
-          alt="Lab Image"
-        />
+      <MDBCol style={{paddingRight: "4"}}>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faFacebookF} />
+        </MDBBtn>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faTwitter} />
+        </MDBBtn>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faInstagram} />
+        </MDBBtn>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faGoogle} />
+        </MDBBtn>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </MDBBtn>
+        <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
+          <FontAwesomeIcon icon={faGithub} />
+        </MDBBtn>
       </MDBCol>
       
       </div>
-      <div class="d-flex">
-      <MDBCol>
-          bchjdjcbahjcasbcsbasjsbxhxbkzksaxsjbkskdbckdcbabcasbcjabscbscbshchbhjjbsjbhs
-      </MDBCol>
-      <MDBCol style={{backgroundColor: "Grey"}}>
-        dhhbshbxsjkxnsna
-      </MDBCol>
+      <div class="d-flex px-4 py-3">
+      {/* <MDBCol style={{padding: "2em",width:"30em"}}> */}
+      <div class="px-4"style={{display: "inline-flex", width:"80em"}}>        
+          {item.bio}
       </div>
+      {/* </MDBCol> */}
+      <div style={{borderRight: '1px solid #ccc'}}></div>
+      <div class="px-4" style={{width: "20%"}}>
+        Quick Links
+        <ul>
+          <li>
+            Link 1
+          </li>
+          <li>
+            Link 2
+          </li>
+          <li>
+            Link 3
+          </li>
+          <li>
+            Link 4
+          </li>
+          <li>
+            Link 5
+          </li>
+        </ul>
+        
+      </div>
+      </div>
+      </React.Fragment>
+    ))}
     </div>
   );
 }
