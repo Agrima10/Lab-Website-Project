@@ -40,10 +40,10 @@ function Patents() {
   return (
     <div>
       <div style={divStyle}>
-        Patents
+        Publications and Patents
       </div>
       <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
+      {/* <CDBSidebar textColor="#fff" backgroundColor="#333">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
             Sidebar
@@ -69,9 +69,9 @@ function Patents() {
               <CDBSidebarMenuItem icon="columns">Books and book chapters</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
-        </CDBSidebarContent>
+        </CDBSidebarContent> */}
 
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
+        {/* <CDBSidebarFooter style={{ textAlign: 'center' }}>
           <div
             style={{
               padding: '20px 5px',
@@ -80,7 +80,7 @@ function Patents() {
             Sidebar Footer
           </div>
         </CDBSidebarFooter>
-      </CDBSidebar>
+      </CDBSidebar> */}
     </div>
       {
         data?.map((item,key)=>(

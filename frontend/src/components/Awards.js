@@ -42,14 +42,28 @@ function Awards() {
         
       <div>     
       {
-        data?.map((item,key)=>(
+        data?.map((item,i)=>(
           <>
+          {console.log(item.image)}
             <Card border="info" style={{ width: '20rem', margin:"1%", display:"inline-flex", height:"40rem"}}>
-              <Card.Img variant="top" src={item.image} alt="Lab Image"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = 'https://via.placeholder.com/150';
-                  }}/>
+            {item.image ? (              
+              <Card.Img variant="top" src={`http://127.0.0.1:8000${item.image}`} alt="Lab Image"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/150';
+              }}
+              />
+              ): (
+                <>
+                  <Card.Img
+                    sx={{ height: 150 }}
+                    image="/Images/profile_placeholder.jpg"
+                    title="Faculty"
+                    loading="lazy"
+                  />
+                </>
+              )
+            }
               <Card.Body>
                 <Card.Title>{item.AwardName}</Card.Title>
                 <Card.Text>Awarded to {item.user}

@@ -44,7 +44,7 @@ function Research() {
         Research
       </div>
       <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
+      {/* <CDBSidebar textColor="#fff" backgroundColor="#333">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
             Sidebar
@@ -77,7 +77,7 @@ function Research() {
             Sidebar Footer
           </div>
         </CDBSidebarFooter>
-      </CDBSidebar>
+      </CDBSidebar> */}
     </div>
       {
         data?.map((item,key)=>(

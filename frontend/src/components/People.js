@@ -86,19 +86,15 @@ function People() {
       </CDBSidebar>
       <div style={{height: '100vh'}}>
       <hr style={{width: "10rem", display:"inline-flex"}}></hr>
-      {/* <br/> */}
-      
       <h1 style={{ display:"inline-flex", margin:"0.5rem"}}> Professor </h1>
-      {/* <hr style={{width: "56rem", display:"inline-flex"}}></hr> */}
-        {/* <br/> */}
-        {/* <br/> */}
-        {/* <br/> */}
+            {/* <p>{{ item }}</p> */}
       {
-        data?.map((item,key)=>(
+        data?.map((item,key)=>(            
+          // {% if item.AcademicProgram == 'Professor' %}
           <>
             <React.Fragment key={key}>
             <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}>
-              {/* <MDBCol style={{width: "10rem"}}> */}
+            {/* <MDBCol style={{width: "10rem"}}> */}
                 <img
                   src={item.image}
                   alt="Member Image"
@@ -107,24 +103,22 @@ function People() {
                     e.target.onerror = null;
                     e.target.src = 'https://via.placeholder.com/150';
                   }}
-                />
-              {/* </MDBCol> */}
-              <MDBCol>
+                  />
+                  {/* </MDBCol> */}
+                  <MDBCol>
                 <h2>{item.Name}</h2>
-                {item.AcademicProgram}, {item.Department}<br/><br/>
-                {item.bio}<br/><br/>
-                Education-<br/>{item.education}
-                <br/><br/>
-                Research Interests-<br/>{item.research_interest}
-                <br/><br/>
-                Achievements-<br/>{item.achievements}
-                <br/><br/>
-                Contact-<br/>{item.contact}
-              </MDBCol>
-              {/* <MDBCol>One of three columns</MDBCol> */}
-            </div>
-          </React.Fragment>
-          </>
+                {item.AcademicProgram}, {item.Department}
+                <p style={{fontSize: "small"}}>{item.bio}</p>
+                Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                </MDBCol>
+                {/* <MDBCol>One of three columns</MDBCol> */}
+                </div>
+                </React.Fragment>
+                </>
+          // {% endif %}
         ))
       }
       </div>
@@ -140,5 +134,5 @@ function People() {
     </div>
   )
 }
-
 export default People
+
