@@ -13,7 +13,7 @@ class LabMember(models.Model):
     AcademicProgram = models.CharField(max_length=50, choices=PROGRAM_CHOICES)
     Department= models.CharField(max_length=50)
     bio = models.TextField()
-    image = models.ImageField(upload_to='labwebsite\images', blank=True, null=True)
+    image = models.ImageField(upload_to='./images', blank=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -24,7 +24,7 @@ class Professor(models.Model):
     Department= models.TextField()
     bio = models.TextField()
     research_interests = models.TextField()
-    image = models.ImageField(upload_to='labwebsite\images', blank=True, null=True)
+    image = models.ImageField(upload_to='./images', blank=True, null=True)
 
     def __str__(self):
         return self.user.username
