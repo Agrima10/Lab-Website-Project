@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { Container, Row, Col } from 'react-bootstrap';
 import backgroundImage from './image/Banner.jpg';
+import { MDBCol } from 'mdb-react-ui-kit';
+
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -54,10 +56,10 @@ function People() {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/members" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/tables" activeClassName="activeClicked">
+            <NavLink navigate to="/members" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
@@ -82,23 +84,59 @@ function People() {
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
-      {/* <div style={{ display: 'flex', width: '100%', height: '100%', padding: '2em', alignItems: 'center' }}>
-  <div style={{ flex: 1, paddingRight: '1em' }}>PHD</div>
-  <div style={{ flex: 1 }}>
-    <hr style={{ height: '1px', backgroundColor: 'black', margin: '0', border: 'none' }} />
-  </div>
-</div> */}
-    </div>
+      <div style={{height: '100vh'}}>
+      <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+      {/* <br/> */}
+      
+      <h1 style={{ display:"inline-flex", margin:"0.5rem"}}> Professor </h1>
+      {/* <hr style={{width: "56rem", display:"inline-flex"}}></hr> */}
+        {/* <br/> */}
+        {/* <br/> */}
+        {/* <br/> */}
       {
         data?.map((item,key)=>(
           <>
-          <div>
-            {item.user}
-            {/* {item.} */}
-          </div>
+            <React.Fragment key={key}>
+            <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}>
+              {/* <MDBCol style={{width: "10rem"}}> */}
+                <img
+                  src={item.image}
+                  alt="Member Image"
+                  style={{marginRight:"2rem"}}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/150';
+                  }}
+                />
+              {/* </MDBCol> */}
+              <MDBCol>
+                <h2>{item.Name}</h2>
+                {item.AcademicProgram}, {item.Department}<br/><br/>
+                {item.bio}<br/><br/>
+                Education-<br/>{item.education}
+                <br/><br/>
+                Research Interests-<br/>{item.research_interest}
+                <br/><br/>
+                Achievements-<br/>{item.achievements}
+                <br/><br/>
+                Contact-<br/>{item.contact}
+              </MDBCol>
+              {/* <MDBCol>One of three columns</MDBCol> */}
+            </div>
+          </React.Fragment>
           </>
         ))
       }
+      </div>
+      {/* </div> */}
+      {/* </div> */}
+      {/* <div style={{ display: 'flex', width: '100%', height: '100%', padding: '2em', alignItems: 'center' }}>
+        <div style={{ flex: 1, paddingRight: '1em' }}>PHD</div>
+        <div style={{ flex: 1 }}>
+          <hr style={{ height: '1px', backgroundColor: 'black', margin: '0', border: 'none' }} />
+        </div>
+      </div> */}
+    </div>      
     </div>
   )
 }

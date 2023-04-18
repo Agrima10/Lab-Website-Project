@@ -9,10 +9,15 @@ class LabMember(models.Model):
         ('UG', 'UG'),
         ('PG', 'PG'),
         ('Alumni', 'Alumni'),
+        ('Professor', 'Professor')
     ]
     AcademicProgram = models.CharField(max_length=50, choices=PROGRAM_CHOICES)
     Department= models.CharField(max_length=50)
     bio = models.TextField()
+    education=models.TextField()
+    research_interest=models.TextField()
+    achievements=models.TextField()
+    contact=models.TextField()
     image = models.ImageField(upload_to='./images', blank=True, null=True)
 
     def __str__(self):

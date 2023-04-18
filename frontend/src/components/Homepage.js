@@ -13,6 +13,7 @@ function Homepage() {
     justifyContent: 'center',
     color: 'white',
     fontSize: '5em',
+    fontWeight: '30'
   };
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState(false);
