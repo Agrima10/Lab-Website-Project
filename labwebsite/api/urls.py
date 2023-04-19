@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.contrib import admin
-from .views import LabMembersViewSet, ProfessorViewSet, AwardViewSet, PublicationViewSet, ProjectViewSet, UserViewSet
+from .views import LabMembersViewSet, ProfessorViewSet, AwardViewSet, PublicationViewSet, ProjectViewSet, UserViewSet,CarouselViewSet
 from rest_framework.routers import DefaultRouter
 # from rest_framework.authtoken.views import
 # from .views import Lab_Member
@@ -14,6 +14,7 @@ router.register('professor',ProfessorViewSet, basename='professor')
 router.register('awards',AwardViewSet, basename='awards')
 router.register('publications',PublicationViewSet, basename='publications')
 router.register('projects',ProjectViewSet, basename='projects')
+router.register('carousel',CarouselViewSet, basename='carousel')
 
 #django users
 router.register('users', UserViewSet, basename='users') 

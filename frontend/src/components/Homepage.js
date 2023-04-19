@@ -24,29 +24,47 @@ function Homepage() {
     fontSize: '5em',
     fontWeight: '30'
   };
-  const [data, setData] = useState([]);
-  const [isError, setIsError] = useState(false);
-
+  const [data1, setData1] = useState([]);
+  const [isError1, setIsError1] = useState(false);
+  
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/professor/', {
+    .get('http://127.0.0.1:8000/api/professor/', {
+      headers: {
+        'Content-Type': 'application/json',
+        // sana
+        Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+        //agrima
+        // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+      },
+    })
+    .then((response) => setData1(response.data))
+    .catch((error) => setIsError1(true));
+  }, []);
+  
+  const [data2, setData2] = useState([]);
+  const [isError2, setIsError2] = useState(false);
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:8000/api/carousel/', {
         headers: {
           'Content-Type': 'application/json',
           // sana
-          // Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+          Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
           //agrima
-          Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+          // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
         },
       })
-      .then((response) => setData(response.data))
-      .catch((error) => setIsError(true));
+      .then((response) => setData2(response.data),
+      console.log(data2))
+      .catch((error) => setIsError2(true));
   }, []);
 
   return (
     <div>
       <div style={divStyle}>Lab Name</div>
       <hr/>
-      {data.length > 0 && data.map((item, key) => (
+      {data1.map((item, key) => (
         <React.Fragment key={key}>
             <div className="d-flex">
             <div className="d-flex py-3 bg-white mb-3 mt-3 mx-auto" style={{}}>
@@ -77,29 +95,24 @@ function Homepage() {
               <MDBCol>.</MDBCol>
             </div>
             </div>
-      {isError && <div>Sorry, there was an error loading the data.</div>}
+      {isError1 && <div>Sorry, there was an error loading the data.</div>}
       <hr/>
       <div className="d-flex px-4 py-3">
       <MDBCarousel>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={1}
-        src='https://mdbootstrap.com/img/new/slides/041.jpg'
-        alt='...'
-        />
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={2}
-        src='https://mdbootstrap.com/img/new/slides/042.jpg'
-        alt='...'
-        />
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={3}
-        src='https://mdbootstrap.com/img/new/slides/043.jpg'
-        alt='...'
-        />
+      {
+        data2?.map((item2,key2)=>(
+          <>
+          <MDBCarouselItem
+            className='w-100 d-block'
+            // itemId={item2.id}
+            src={item2.image}
+            alt='...'
+            />
+          </>
+        ))
+      }
       </MDBCarousel>
+      
       <MDBCol style={{paddingRight: "4"}}>
         <MDBBtn outline color="dark" floating className='mx-4 my-1' href='#!' role='button'>
           <FontAwesomeIcon icon={faFacebookF} />
