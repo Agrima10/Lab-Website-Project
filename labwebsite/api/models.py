@@ -20,7 +20,7 @@ class LabMember(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.Name
     
 class Professor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -61,6 +61,7 @@ class Publication(models.Model):
     pub_date = models.DateField()
     link = models.URLField()
     members = models.ManyToManyField(LabMember)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -69,6 +70,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     members = models.ManyToManyField(LabMember)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
