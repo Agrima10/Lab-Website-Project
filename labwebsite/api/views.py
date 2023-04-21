@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import LabMember, Professor, Award, Publication, Project
-from .serializers import LabMemberSerializer, ProfessorSerializer, AwardSerializer, PublicationSerializer, ProjectSerializer
+from .models import LabMember, Professor, Award, Publication, Project, Carousel
+from .serializers import LabMemberSerializer, ProfessorSerializer, AwardSerializer, PublicationSerializer, ProjectSerializer, CarouselSerializer
 from rest_framework import viewsets
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
@@ -24,6 +24,14 @@ class LabMembersViewSet(viewsets.ModelViewSet):
 class ProfessorViewSet(viewsets.ModelViewSet):
     queryset=Professor.objects.all()
     serializer_class=ProfessorSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
+    permission_classes=[IsAuthenticated]
+    authentication_classes=(TokenAuthentication,)
+
+class CarouselViewSet(viewsets.ModelViewSet):
+    queryset=Carousel.objects.all()
+    serializer_class=CarouselSerializer
     permission_classes=[IsAuthenticated]
     authentication_classes=(TokenAuthentication,)
     permission_classes=[IsAuthenticated]
