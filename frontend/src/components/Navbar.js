@@ -38,8 +38,8 @@ function Navbar1() {
             <Nav.Link href="/awards">Awards and Fellowships</Nav.Link>
             <NavDropdown title="More" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/news">News & Opportunities</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item href="http://127.0.0.1:8000/admin/">
+                Admin
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
