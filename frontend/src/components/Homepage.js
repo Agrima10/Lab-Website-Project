@@ -24,6 +24,12 @@ function Homepage() {
     fontSize: '5em',
     fontWeight: '30'
   };
+  const links = [
+    { label: 'Link1', url: 'https://www.iiti.ac.in/people/~puneet/' },
+    { label: 'Link2', url: 'https://scholar.google.co.in/citations?user=yUB8lNsAAAAJ&hl=en' },
+    { label: 'Link3', url: 'https://iiti.irins.org/profile/93769' },
+  ];
+
   const [data1, setData1] = useState([]);
   const [isError1, setIsError1] = useState(false);
 
@@ -35,11 +41,8 @@ function Homepage() {
           // sana
           // Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7',
           //agrima
-<<<<<<< Updated upstream
           //672875923a6a356c94a3d5db720e85af9f4aca79 niru
-=======
->>>>>>> Stashed changes
-          Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+          Authorization: 'Token 672875923a6a356c94a3d5db720e85af9f4aca79', 
         },
       })
       .then((response) => setData1(response.data))
@@ -54,7 +57,7 @@ function Homepage() {
         headers: {
           'Content-Type': 'application/json',
           // sana
-          Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7',
+          Authorization: 'Token 672875923a6a356c94a3d5db720e85af9f4aca79',
           //agrima
           // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
         },
@@ -148,23 +151,13 @@ function Homepage() {
             {/* </MDBCol> */}
             <div style={{ borderRight: '1px solid #ccc' }}></div>
             <div class="px-4" style={{ width: "20%" }}>
-              Quick Links
+              Quick Links 
               <ul>
-                <li>
-                  Link 1
-                </li>
-                <li>
-                  Link 2
-                </li>
-                <li>
-                  Link 3
-                </li>
-                <li>
-                  Link 4
-                </li>
-                <li>
-                  Link 5
-                </li>
+                {links.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.url}>{link.label}</a>
+                  </li>
+                ))}
               </ul>
 
             </div>
