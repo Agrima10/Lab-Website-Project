@@ -8,8 +8,11 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+from api.admin import lab_site
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', lab_site.urls),
+    path('realadmin/', admin.site.urls),
     path('',include ('api.urls')),
     # authentication path
     path('auth/',obtain_auth_token),
