@@ -17,6 +17,7 @@ class LabMember(models.Model):
     research_interest=models.TextField()
     achievements=models.TextField()
     contact=models.TextField()
+    email=models.TextField()
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
