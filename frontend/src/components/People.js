@@ -34,9 +34,9 @@ function People() {
         headers: {
           'Content-Type': 'application/json',
           // sana
-          'Authorization': 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7',
+          // 'Authorization': 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7',
           //agrima
-          // 'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
+          'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
         }
       }
     ).then((response) => setData(response.data))
@@ -59,31 +59,11 @@ function People() {
             </a>
           </CDBSidebarHeader>
 
-          <CDBSidebarContent className="sidebar-content">
-          <CDBSidebarMenu>
-          {/* <Link to="/members#professor"> */}
-          <a href='/members#professor' smooth={true}>
-                   <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
-          </a>
-          {/* </Link> */}
-          <a href='/members#phd' smooth={true}>
-              <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
-            </a>
-            <a href='/members#pg' smooth={true}>
-              <CDBSidebarMenuItem icon="user">PG Members</CDBSidebarMenuItem>
-            </a>
-            <a href='/members#ug' smooth={true}>
-              <CDBSidebarMenuItem icon="user">UG Members</CDBSidebarMenuItem>
-              </a>
-            <a href='/members#alumni' smooth={true}>
-              <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
-            </a>
-          </CDBSidebarMenu>
-          </CDBSidebarContent>
+          {/* <CDBSidebarContent className="sidebar-content"> */}
         <CDBSidebarContent className="sidebar-content">
-          <CDBSidebarMenu>
+           <CDBSidebarMenu>
           {/* <Link to="/members#professor"> */}
-          <a href='/members#professor' smooth={true}>
+          <a href='/members' smooth={true}>
                    <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
           </a>
           {/* </Link> */}
@@ -99,7 +79,7 @@ function People() {
             <a href='/members#alumni' smooth={true}>
               <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
             </a>
-          </CDBSidebarMenu>
+          </CDBSidebarMenu> 
         </CDBSidebarContent>
 
           <CDBSidebarFooter style={{ textAlign: 'center' }}>
@@ -492,7 +472,7 @@ function People() {
               </>
             ))
           }
-          <section id='alumn'>
+          <section id='alumni'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <hr style={{ width: '100%', border: '1px solid black' }} />
             </div>
