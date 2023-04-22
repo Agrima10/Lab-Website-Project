@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import LabMember, Professor, Award, Publication, Project, Carousel
+from .models import LabMember, Professor, Award, Publication, Project, Carousel, News
 from rest_framework.authtoken.views import Token
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,6 +26,11 @@ class LabMemberSerializer(serializers.ModelSerializer):
 class CarouselSerializer(serializers.ModelSerializer):
     class Meta:
         model = Carousel
+        fields = '__all__'
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
         fields = '__all__'
 
 class ProfessorSerializer(serializers.ModelSerializer):
