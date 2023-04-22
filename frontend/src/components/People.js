@@ -33,8 +33,9 @@ function People() {
     {headers: {
       'Content-Type':'application/json',
       // sana
-      'Authorization': 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
-      // 'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
+      // 'Authorization': 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+      //agrima
+      'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
     }}
     ).then((response) => setData(response.data))
     .catch((error) => setIsError(error.message));
@@ -58,20 +59,19 @@ function People() {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/members" activeClassName="activeClicked">
+            <NavLink exact to="#professor" activeClassName="activeClicked" smooth={true} duration={500}>
               <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink navigate to="/members" activeClassName="activeClicked">
+            <NavLink exact to="#phd" activeClassName="activeClicked" smooth={true} duration={500}>
               <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">MTech Members</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">MSc Members</CDBSidebarMenuItem>
-            </NavLink>
-            
-            <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="#pg" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="user">PG Members</CDBSidebarMenuItem>
+            </NavLink>            
+            <NavLink exact to="#ug" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="user">UG Members</CDBSidebarMenuItem>
+            </NavLink>            
+            <NavLink exact to="#alumni" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
@@ -86,53 +86,206 @@ function People() {
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
-      <div style={{height: '100vh', overflowY: 'scroll'}}>
-      {data.AcademicProgram==="Professor"?
-              <>
-              phd
-              <hr style={{width: "10rem", display:"inline-flex"}}></hr>
-              <h1 style={{ display:"inline-flex", margin:"0.5rem"}}> Professor </h1>
-              {
-                data?.map((item,key)=>(            
-                  <>
-                    <React.Fragment key={key}>
-                    <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}>
+      <div style={{display:'flex', overflowY:'scroll', flexDirection:'column'}}>
+        <section id='professor'>
+        <h1 style={{ display:"inline", margin:"0.5rem", width:'fit-content'}}> Professor </h1>
+        </section>
+        <hr style={{width: "10rem", display:"inline"}}></hr>
+        {
+          data?.map((item,key)=>(            
+            <>
+              <React.Fragment key={key}>
+              {item.AcademicProgram==="Professor"?
+                <div>
+              <br/>
+                    {/* <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}> */}
                         <img
                           src={item.image}
                           alt="Member Image"
-                          style={{marginRight:"2rem"}}
+                          style={{marginLeft:"2rem",marginRight:"2rem", display:'inline', width:'13rem', height:'13rem'}}
                           onError={(e) => {
                             e.target.onerror = null;
                             e.target.src = 'https://via.placeholder.com/150';
                           }}
                           />
-                        <MDBCol>
-                        <h2>{item.Name}</h2>
+                        {/* <MDBCol> */}
+                        <div style={{display:"inline"}}>
+                        <h2 style={{display:'inline-flex'}}>{item.Name}</h2>
                         {item.AcademicProgram}, {item.Department}
                         <p style={{fontSize: "small"}}>{item.bio}</p>
                         Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
                         Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
                         Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
                         Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
-                        </MDBCol>
                         </div>
-                        </React.Fragment>
-                        </>
-                ))
-              }
-              </>
-      :<>not loading</>}
-      
-      {/* // {% endif %} */}
+                        {/* </MDBCol> */}
+                        <br></br>
+                        {/* </div> */}
+      </div>:<></>}
+      </React.Fragment>
+      </>
+))
+}      
+<section id='phd'>
+
+<h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='phd'> PhD </h1>
+</section>
+        <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+        {
+          data?.map((item,key)=>(            
+            <>
+              <React.Fragment key={key}>
+              {item.AcademicProgram==="PHD"?
+                <div>
+              {/* <h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='professor'> Professor </h1> */}
+              {/* <hr style={{width: "10rem", display:"inline-flex"}}></hr> */}
+              <br/>
+                    {/* <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}> */}
+                        <img
+                          src={item.image}
+                          alt="Member Image"
+                          style={{marginLeft:"2rem",marginRight:"2rem", display:'inline', width:'13rem', height:'13rem'}}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/150';
+                          }}
+                          />
+                        {/* <MDBCol> */}
+                        <div style={{display:"inline"}}>
+                        <h2 style={{display:'inline-flex'}}>{item.Name}</h2>
+                        {item.AcademicProgram}, {item.Department}
+                        <p style={{fontSize: "small"}}>{item.bio}</p>
+                        Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                        Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                        Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                        Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                        </div>
+                        {/* </MDBCol> */}
+                        <br></br>
+                        {/* </div> */}
+      </div>:<></>}
+      </React.Fragment>
+      </>
+))
+}      
+<h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='pg'> PG Members </h1>
+        <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+        {
+          data?.map((item,key)=>(            
+            <>
+              <React.Fragment key={key}>
+              {item.AcademicProgram==="PG"?
+                <div>
+              {/* <h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='professor'> Professor </h1> */}
+              {/* <hr style={{width: "10rem", display:"inline-flex"}}></hr> */}
+              <br/>
+                    {/* <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}> */}
+                        <img
+                          src={item.image}
+                          alt="Member Image"
+                          style={{marginLeft:"2rem",marginRight:"2rem", display:'inline', width:'13rem', height:'13rem'}}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/150';
+                          }}
+                          />
+                        {/* <MDBCol> */}
+                        <div style={{display:"inline"}}>
+                        <h2 style={{display:'inline-flex'}}>{item.Name}</h2>
+                        {item.AcademicProgram}, {item.Department}
+                        <p style={{fontSize: "small"}}>{item.bio}</p>
+                        Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                        Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                        Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                        Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                        </div>
+                        {/* </MDBCol> */}
+                        <br></br>
+                        {/* </div> */}
+      </div>:<></>}
+      </React.Fragment>
+      </>
+))
+}      
+<h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='ug'> UG Members </h1>
+        <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+        {
+          data?.map((item,key)=>(            
+            <>
+              <React.Fragment key={key}>
+              {item.AcademicProgram==="UG"?
+                <div>
+              {/* <h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='professor'> Professor </h1> */}
+              {/* <hr style={{width: "10rem", display:"inline-flex"}}></hr> */}
+              <br/>
+                    {/* <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}> */}
+                        <img
+                          src={item.image}
+                          alt="Member Image"
+                          style={{marginLeft:"2rem",marginRight:"2rem", display:'inline', width:'13rem', height:'13rem'}}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/150';
+                          }}
+                          />
+                        {/* <MDBCol> */}
+                        <div style={{display:"inline"}}>
+                        <h2 style={{display:'inline-flex'}}>{item.Name}</h2>
+                        {item.AcademicProgram}, {item.Department}
+                        <p style={{fontSize: "small"}}>{item.bio}</p>
+                        Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                        Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                        Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                        Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                        </div>
+                        {/* </MDBCol> */}
+                        <br></br>
+                        {/* </div> */}
+      </div>:<></>}
+      </React.Fragment>
+      </>
+))
+}      
+<h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='alumni'> Alumni Members </h1>
+        <hr style={{width: "10rem", display:"inline-flex"}}></hr>
+        {
+          data?.map((item,key)=>(            
+            <>
+              <React.Fragment key={key}>
+              {item.AcademicProgram==="Alumni"?
+                <div>
+              {/* <h1 style={{ display:"inline-flex", margin:"0.5rem"}} id='professor'> Professor </h1> */}
+              {/* <hr style={{width: "10rem", display:"inline-flex"}}></hr> */}
+              <br/>
+                    {/* <div className="d-flex align-items-start " style={{ height: '100px', padding: '2em' }}> */}
+                        <img
+                          src={item.image}
+                          alt="Member Image"
+                          style={{marginLeft:"2rem",marginRight:"2rem", display:'inline', width:'13rem', height:'13rem'}}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/150';
+                          }}
+                          />
+                        {/* <MDBCol> */}
+                        <div style={{display:"inline"}}>
+                        <h2 style={{display:'inline-flex'}}>{item.Name}</h2>
+                        {item.AcademicProgram}, {item.Department}
+                        <p style={{fontSize: "small"}}>{item.bio}</p>
+                        Education-<br/><p style={{fontSize: "small"}}>{item.education}</p>
+                        Research Interests-<br/><p style={{fontSize: "small"}}>{item.research_interest}</p>
+                        Achievements-<br/><p style={{fontSize: "small"}}>{item.achievements}</p>
+                        Contact-<br/><p style={{fontSize: "small"}}>{item.contact}</p>
+                        </div>
+                        {/* </MDBCol> */}
+                        <br></br>
+                        {/* </div> */}
+      </div>:<></>}
+      </React.Fragment>
+      </>
+))
+}      
       </div>
-      {/* </div> */}
-      {/* </div> */}
-      {/* <div style={{ display: 'flex', width: '100%', height: '100%', padding: '2em', alignItems: 'center' }}>
-        <div style={{ flex: 1, paddingRight: '1em' }}>PHD</div>
-        <div style={{ flex: 1 }}>
-          <hr style={{ height: '1px', backgroundColor: 'black', margin: '0', border: 'none' }} />
-        </div>
-      </div> */}
     </div>      
     </div>
   )

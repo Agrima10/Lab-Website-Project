@@ -24,11 +24,16 @@ function Awards() {
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/api/awards/',
     {headers: {
-      Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
-      // sana
       'Content-Type':'application/json',
+<<<<<<< Updated upstream
       'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
       //672875923a6a356c94a3d5db720e85af9f4aca79 
+=======
+      // sana
+      // Authorization: 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7', 
+      //agrima
+      'Authorization':'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
+>>>>>>> Stashed changes
     }}).then((response) => setData(response.data))
     .catch((error) => setIsError(error.message));
   if (isError) {
