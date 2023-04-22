@@ -1,42 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react'
+import axios from 'axios'
+import backgroundImage from './image/Banner.jpg';
+import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
+// import CardGroup from 'react-bootstrap/CardGroup';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
+import { useState,useEffect } from 'react'
+function Awards() {
+  const divStyle = {
+    height: '20vh',
+    backgroundImage: `url(${backgroundImage})`,
+    textAlign: 'center',
+    padding: '5px',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: '5em',
+    fontWeight: '30'
 
-const NewsPage = () => {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/news')
-      .then(response => setNews(response.data))
-      .catch(error => console.error(error));
-  }, []);
-
+  };
+  const [data,setData]= useState();
+  const [isError,setIsError]=useState();
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/api/news/',
+    {headers: {
+      'Content-Type':'application/json',
+      'Authorization':'Token 672875923a6a356c94a3d5db720e85af9f4aca79'
+      //672875923a6a356c94a3d5db720e85af9f4aca79 
+    }}).then((response) => setData(response.data))
+    .catch((error) => setIsError(error.message));
+  if (isError) {
+    setData("Not Available");
+  }
+  },[])
+  console.log(data);
   return (
     <div>
-      {news.map((newsItem, index) => {
-        if (index % 3 === 0) {
-          return (
-            <div key={index} className="row">
-              <NewsItem newsItem={newsItem} />
-              {news[index+1] ? <NewsItem newsItem={news[index+1]} /> : null}
-              {news[index+2] ? <NewsItem newsItem={news[index+2]} /> : null}
-            </div>
-          );
-        }
-        return null;
-      })}
+      <div style={divStyle}>
+        News
+      </div>
+      <center>
+        
+      <div>     
+      {
+        data?.map((item,i)=>(
+          <>
+          {console.log(item.image)}
+            <Card border="info" style={{ width: '20rem', margin:"1%", display:"inline-flex", height:"15 rem"}}>            
+              <Card.Img variant="top" src={item.image}  loading="lazy"alt="Lab Image"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/150';
+              }}
+              />           
+            </Card>         
+          </>
+        ))
+      }
+      </div>
+      </center>
     </div>
-  );
-};
+  )
+}
 
-const NewsItem = ({ newsItem }) => (
-  <div className="col">
-    <img src={newsItem.image} alt={newsItem.title} />
-    <h2>{newsItem.title}</h2>
-    <p>{newsItem.description}</p>
-  </div>
-);
-
-export default NewsPage;
+export default Awards
 
 
 
