@@ -60,23 +60,25 @@ function People() {
           </CDBSidebarHeader>
 
           <CDBSidebarContent className="sidebar-content">
-            <CDBSidebarMenu>
-              <NavLink exact to="#professor" activeClassName="activeClicked" smooth={true} duration={500}>
-                <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="#phd" activeClassName="activeClicked" smooth={true} duration={500}>
-                <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="#pg" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="user">PG Members</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="#ug" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="user">UG Members</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="#alumni" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
-              </NavLink>
-            </CDBSidebarMenu>
+          <CDBSidebarMenu>
+          {/* <Link to="/members#professor"> */}
+          <a href='/members#professor' smooth={true}>
+                   <CDBSidebarMenuItem icon="user">Dr. Puneet Gupta</CDBSidebarMenuItem>
+          </a>
+          {/* </Link> */}
+          <a href='/members#phd' smooth={true}>
+              <CDBSidebarMenuItem icon="user">PhD Members</CDBSidebarMenuItem>
+            </a>
+            <a href='/members#pg' smooth={true}>
+              <CDBSidebarMenuItem icon="user">PG Members</CDBSidebarMenuItem>
+            </a>
+            <a href='/members#ug' smooth={true}>
+              <CDBSidebarMenuItem icon="user">UG Members</CDBSidebarMenuItem>
+              </a>
+            <a href='/members#alumni' smooth={true}>
+              <CDBSidebarMenuItem icon="user">Alumni Members</CDBSidebarMenuItem>
+            </a>
+          </CDBSidebarMenu>
           </CDBSidebarContent>
 
           <CDBSidebarFooter style={{ textAlign: 'center' }}>
