@@ -59,7 +59,7 @@ function Homepage() {
           // sana
           Authorization: 'Token 672875923a6a356c94a3d5db720e85af9f4aca79',
           //agrima
-          // Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
+          Authorization: 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291', 
         },
       })
       .then((response) => setData2(response.data),
