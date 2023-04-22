@@ -1,4 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const NewsPage = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/news')
+      .then(response => setNews(response.data))
+      .catch(error => console.error(error));
+  }, []);
+
+  return (
+    <div>
+      {news.map((newsItem, index) => {
+        if (index % 3 === 0) {
+          return (
+            <div key={index} className="row">
+              <NewsItem newsItem={newsItem} />
+              {news[index+1] ? <NewsItem newsItem={news[index+1]} /> : null}
+              {news[index+2] ? <NewsItem newsItem={news[index+2]} /> : null}
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
+  );
+};
+
+const NewsItem = ({ newsItem }) => (
+  <div className="col">
+    <img src={newsItem.image} alt={newsItem.title} />
+    <h2>{newsItem.title}</h2>
+    <p>{newsItem.description}</p>
+  </div>
+);
+
+export default NewsPage;
+
+
+
+
+
+/*import React from 'react';
 import backgroundImage from './image/Banner.jpg';
 import image1 from './image/image1.jpg';
 import image2 from './image/image2.jpg';
@@ -44,4 +88,4 @@ function News() {
   );
 }
 
-export default News;
+export default News;*/

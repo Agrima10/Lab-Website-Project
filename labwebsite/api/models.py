@@ -41,6 +41,12 @@ class Carousel(models.Model):
     def __int__(self):
         return self.id
     
+class News(models.Model):
+    id=models.IntegerField(primary_key=True,default=1)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    def __int__(self):
+        return self.id
+    
 class Award(models.Model):
     user = models.CharField(max_length=200)
     # Name = models.CharField(max_length=100)
