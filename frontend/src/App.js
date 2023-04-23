@@ -9,6 +9,7 @@ import People from './components/People';
 // import PhD from './components/PhD';
 import Patents from './components/Patents';
 import Research from './components/Research';
+import ContactUs from './components/contactus';
 // import Footer from './components/Footer/Footer';
 // import People from './components/People';
 // import { useState } from 'react';
@@ -27,6 +28,7 @@ function App() {
           <Route exact="true"  path="/patents" element={<Patents/>} />
           <Route exact="true" path="/members" element={<People />} />
           <Route exact="true" path="/research" element={<Research />} />
+          <Route exact="true" path="/contactus" element={<ContactUs />} />
       </Routes>
       <Footer/>
     </div>
