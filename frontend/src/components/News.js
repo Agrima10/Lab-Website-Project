@@ -25,9 +25,10 @@ function Awards() {
     axios.get('http://127.0.0.1:8000/api/news/',
     {headers: {
       'Content-Type':'application/json',
+      // niru
       // 'Authorization':'Token 672875923a6a356c94a3d5db720e85af9f4aca79'
-      'Authorization': 'Token 311267cd55dd503028063abcf2ca1c96ad877fc7',
-      //672875923a6a356c94a3d5db720e85af9f4aca79 
+      //agrima
+      'Authorization': 'Token 7c22c44ef8744aa74d9fbb8bf3c8ad8d6b32f291'
     }}).then((response) => setData(response.data))
     .catch((error) => setIsError(error.message));
   if (isError) {
