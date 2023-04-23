@@ -99,7 +99,13 @@ function Homepage() {
                 <br/>               */}
               </MDBCol>
               {/* <div style={{borderRight: '1px solid #ccc'}}></div> */}
-              <MDBCol style={{ paddingLeft: "2em" }}>{item.research_interests}</MDBCol>
+              <MDBCol style={{ paddingLeft: "2em" }}>
+              {item.research_interests.split('\n').map((line, index) => (
+                            <React.Fragment key={index}>
+                              <li>{line}</li>                          
+                            </React.Fragment>
+                          ))}
+                </MDBCol>
               <MDBCol>.</MDBCol>
             </div>
           </div>
