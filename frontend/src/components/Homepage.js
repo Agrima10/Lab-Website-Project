@@ -79,7 +79,7 @@ function Homepage() {
               <MDBCol>
                 <img
                   src={item.image}
-                  style={{ float: "right", marginRight: "2em", height: "10em", width: "10em" }}
+                  style={{ float: "right", marginRight: "2em", height: "10em", width: "14em" }}
                   alt="Lab Image"
                   onError={(e) => {
                     e.target.onerror = null;
