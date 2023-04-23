@@ -48,7 +48,7 @@ If you'd like to contribute to the project, please follow these steps:
 ## Contributors
 1. <a href="https://github.com/Agrima10"> Agrima Bundela</a> - 210002009
 2. <a href="https://github.com/sana-presswala">Sana Presswala</a> - 210001062
-3. <a href="https://github.com/NiranjanaNair27">Niranjana Nair</a> - 210001062
+3. <a href="https://github.com/NiranjanaNair27">Niranjana Nair</a> - 210003049
 4. <a href="https://github.com/kirtankushwaha">Kirtan Kushwaha</a> - 210001030
 
 ## Acknowledgements
